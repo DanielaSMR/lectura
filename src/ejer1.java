@@ -27,22 +27,5 @@ public class ejer1 {
         catch(Exception e){
             e.printStackTrace();
         }
-
-       /* 
-        try(FileReader fr = new FileReader("src/hola.txt")){
-            BufferedReader br = new BufferedReader(fr);
-            String linea;
-            while((linea=br.readLine()) !=null){
-                char[] cha = linea.toCharArray();
-                for(char i : cha){
-                    if(i != ' '){
-                        System.out.print(i);
-                    }
-                }
-                System.out.println();
-            }
-        } catch(Exception e){
-        e.printStackTrace();
-        }*/
     }   
 }
