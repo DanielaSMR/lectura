@@ -1,14 +1,8 @@
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.Console;
-import java.io.DataOutput;
-import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 public class ejer3{
@@ -31,21 +25,24 @@ public class ejer3{
         try{
             FileReader fr = new FileReader(fichero1);
             BufferedReader br = new BufferedReader(fr);
-            String linea1 = br.readLine();
+            FileWriter fw = new FileWriter(ruta + ficheroFinal);
+            BufferedWriter bw = new BufferedWriter(fw);
+            String linea1;
+            while((linea1 = br.readLine())!=null){
+                bw.write(linea1);
+            }
+
+            fr = new FileReader(fichero2);
+            br = new BufferedReader(fr);
+
+            while((linea1 = br.readLine())!=null){
+                bw.write(linea1);
+            }
+            bw.close();
+            fw.close();
             br.close();
             fr.close();
 
-            FileReader fr2 = new FileReader(fichero2);
-            BufferedReader br2 = new BufferedReader(fr2);
-            linea1 = linea1 + br2.readLine();
-            br2.close();
-            fr2.close();
-
-            FileWriter fw = new FileWriter(ruta + ficheroFinal);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(linea1);
-            bw.close();
-            fw.close();
         }catch(Exception e){
             e.printStackTrace();
         }
