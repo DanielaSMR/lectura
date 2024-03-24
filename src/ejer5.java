@@ -1,6 +1,7 @@
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -14,10 +15,22 @@ public class ejer5{
         System.out.println("Cuantos numeros quieres escribir?");
         int contador = sc.nextInt();
 
+        File ficheroDest = new File(fichero);
+
         try{
-            FileOutputStream fos = new FileOutputStream(fichero);
+            FileOutputStream fos = new FileOutputStream(ficheroDest);
             DataOutputStream dos = new DataOutputStream(fos);
-            int num = 0;
+            String num;
+            for(int i = 0;i < contador;i++){
+                System.out.println("Escribe un numero entre 0 y 100");
+                num = sc.next();
+                if (Integer.parseInt(num) > 100 || Integer.parseInt(num) < 0){
+                    System.out.println("No es valido");
+                }else{
+                    dos.writeUTF(num);
+                }
+            }
+            /*int num = 0;
             for(int i = 0;i < contador;i++){
                 System.out.println("Escribe un numero entre 0 y 100");
                 num = sc.nextInt();
@@ -26,13 +39,16 @@ public class ejer5{
                 }else{
                     dos.writeInt(num);
                 }
-            }
+            }*/
             dos.close();
             fos.close();
             FileInputStream fis = new FileInputStream(fichero);
             DataInputStream dis = new DataInputStream(fis);
 
-            System.out.println(dis.readInt());
+            System.out.println("Los numeros son:");
+            for(int i = 0;i < contador;i++){
+                System.out.println(dis.readUTF());
+            }
             System.out.println("Escribiste: " + contador + " numeros");
             dis.close();
             fis.close();
