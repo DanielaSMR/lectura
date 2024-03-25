@@ -19,11 +19,13 @@ public class ejer2 {
                     System.out.print(Character.toLowerCase(caracter[i]));
                 }if(Character.isLowerCase(caracter[i])){
                     System.out.print(Character.toUpperCase(caracter[i]));
+                }if(caracter[i] == ' '){
+                    System.out.print(caracter[i]);
                 }
             }
 
         try{
-            FileWriter fw = new FileWriter("src/" + archivo);
+            FileWriter fw = new FileWriter("src/ejer3-1" + archivo);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(caracter); 
             bw.close();

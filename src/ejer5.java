@@ -30,16 +30,7 @@ public class ejer5{
                     dos.writeUTF(num);
                 }
             }
-            /*int num = 0;
-            for(int i = 0;i < contador;i++){
-                System.out.println("Escribe un numero entre 0 y 100");
-                num = sc.nextInt();
-                if(num > 100 || num < 0){
-                    System.out.println("No es valido");
-                }else{
-                    dos.writeInt(num);
-                }
-            }*/
+            
             dos.close();
             fos.close();
             FileInputStream fis = new FileInputStream(fichero);
