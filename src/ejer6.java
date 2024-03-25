@@ -27,12 +27,13 @@ public class ejer6{
             dos.writeUTF("Su modelo es " + modelo);
             dos.writeUTF("El tamaño del deposito es "+ tamaño);
 
+            dos.close();
+            fos.close();
             int i;
             while((i=dis.read()) !=-1){
                System.out.println(dis.readUTF());
             }
-            dos.close();
-            fos.close();
+           
             dis.close();
             fis.close();
 
